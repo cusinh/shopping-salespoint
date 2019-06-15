@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<div th:include="/fragments/main-header"></div>
+<body>
+   <div th:include="/fragments/main-menu"></div>
+            <!-- Main header  -->
+            <div class="site-blocks-cover" data-aos="fade">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ml-auto order-md-2 align-self-start">
+                            <div class="site-block-cover-content">
+                                <h2 class="sub-title">#New Summer Collection 2019</h2>
+                                <h1>Arrivals Sales</h1>
+                                <p><a th:href="@{/product/women-catalog}" class="btn btn-black rounded-0">Shop Now</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-1 align-self-end">
+                            <img th:src="@{/images/model_3.png}" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-section">
+                <div class="container">
+                    <div class="title-section mb-5">
+                        <h2 class="text-uppercase"><span class="d-block">Discover</span> The Collections</h2>
+                    </div>
+                    <div class="row align-items-stretch">
+                        <div class="col-lg-8">
+                            <div class="product-item sm-height full-height bg-gray">
+                                <a class="product-category" th:href="@{/product/women-catalog}">Women <span th:text="${countWomenProduct} + items"></span></a>
+                                <img th:src="@{/images/model_4.png}" alt="Image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="product-item sm-height bg-gray mb-4">
+                                <a class="product-category" th:href="@{/product/men-catalog}">Men <span th:text="${countMenProduct} + items"></span></a>
+                                <img th:src="@{/images/model_5.png}" alt="Image" class="img-fluid">
+                            </div>
+
+                            <div class="product-item sm-height bg-gray">
+                                <a class="product-category" th:href="@{/product/shoes-catalog}">Shoes <span th:text="${countShoesProduct} + items"></span></a>
+                                <img th:src="@{/images/model_6.png}" alt="Image" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="title-section mb-5 col-12">
+                            <h2 class="text-uppercase">Popular Products</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 item-entry mb-4" th:each="item : ${popularProductList}">
+                            <a th:href="@{/product/product-detail/}+${item.id}" class="product-item md-height bg-gray d-block">
+                                <img th:src="${item.image}" alt="Image" class="img-fluid">
+                            </a>
+                            <a th:href="@{/product/product-detail/}+${item.id}"><h2 class="item-title" th:text="${item.name}"></h2></a>
+                            <strong class="item-price" th:text="${item.price}"></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="title-section text-center mb-5 col-12">
+                            <h2 class="text-uppercase">Most Rated</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 block-3">
+                            <div class="nonloop-block-3 owl-carousel">
+                                <div class="item" th:each="item : ${productList}">
+                                    <div class="item-entry">
+                                        <a th:href="@{/product/product-detail/}+${item.id}" class="product-item md-height bg-gray d-block">
+                                            <img th:src="${item.image}" alt="Image" class="img-fluid">
+                                        </a>
+                                        <a th:href="@{/product/product-detail/}+${item.id}" th:text="${item.name}"><h2 class="item-title"></h2></a></br>
+                                        <strong class="item-price" th:text="${item.price}"></strong>
+                                        <div class="star-rating">
+                                            <span class="icon-star2 text-warning"></span>
+                                            <span class="icon-star2 text-warning"></span>
+                                            <span class="icon-star2 text-warning"></span>
+                                            <span class="icon-star2 text-warning"></span>
+                                            <span class="icon-star2 text-warning"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="site-blocks-cover inner-page py-5" data-aos="fade">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ml-auto order-md-2 align-self-start">
+                            <div class="site-block-cover-content">
+                                <h2 class="sub-title">#New Summer Collection 2019</h2>
+                                <h1>New Shoes</h1>
+                                <p><a th:href="@{/product/shoes-catalog}" class="btn btn-black rounded-0">Shop Now</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-1 align-self-end">
+                            <img th:src="@{/images/model_6.png}" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<div th:include="/fragments/main-footer"></div>
+</body>
+</html>
